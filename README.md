@@ -9,8 +9,8 @@ Here’s a clear roadmap to help you explore the *DBeaver* codebase (hosted on G
 
 ### High‑Level Architecture
 
-* DBeaver is built on *Eclipse RCP (Rich Client Platform)* using a modular *OSGi plugin architecture*. Its core is organized as plugins (bundles), grouped into features and products ([DeepWiki][1]).
-* Key systems include: the *Core plugin system, **Data Source Management, **Database Support extensions, **SQL editor system, **UI framework and tools* ([DeepWiki][2]).
+* DBeaver is built on *Eclipse RCP (Rich Client Platform)* using a modular *OSGi plugin architecture*. Its core is organized as plugins (bundles), grouped into features and products .
+* Key systems include: the *Core plugin system, **Data Source Management, **Database Support extensions, **SQL editor system, **UI framework and tools* .
 
 ### Codebase Structure
 
@@ -18,17 +18,17 @@ Here’s a clear roadmap to help you explore the *DBeaver* codebase (hosted on G
 
   * plugins/ for OSGi bundles such as org.jkiss.dbeaver.core, model, UI editors, and database extension plugins.
   * features/ defining collections of plugins (e.g., runtime, RCP-specific).
-  * product/ for full application build configurations like Community or Enterprise editions ([DeepWiki][3], [GitHub][4]).
+  * product/ for full application build configurations like Community or Enterprise editions .
 
 ### Build System
 
 * DBeaver uses *Maven with Tycho* to build Eclipse plugins, features, and products.
-* Build profiles support different platform targets (Windows, macOS, Linux, ARM64, etc.) ([DeepWiki][3]).
+* Build profiles support different platform targets (Windows, macOS, Linux, ARM64, etc.).
 
 ### Major Subsystems
 
-* *SQL Editor*: divided into SQLEditorBase (syntax highlighting, completion) and SQLEditor (query execution, result tabs), interacting with SQLCompletionContext, SQLQueryJob, ResultSetViewer, and database dialect abstractions ([DeepWiki][5]).
-* *Data Source Management*: manages connections via interfaces like DBPDataSourceContainer, DBPDataSourceRegistry, and platform workspace services (DBPPlatform) ([DeepWiki][1]).
+* *SQL Editor*: divided into SQLEditorBase (syntax highlighting, completion) and SQLEditor (query execution, result tabs), interacting with SQLCompletionContext, SQLQueryJob, ResultSetViewer, and database dialect abstractions .
+* *Data Source Management*: manages connections via interfaces like DBPDataSourceContainer, DBPDataSourceRegistry, and platform workspace services (DBPPlatform) .
 
 Step 1: Install Required Plugins
 
