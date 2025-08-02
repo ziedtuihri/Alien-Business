@@ -30,7 +30,102 @@ Here’s a clear roadmap to help you explore the *DBeaver* codebase (hosted on G
 * *SQL Editor*: divided into SQLEditorBase (syntax highlighting, completion) and SQLEditor (query execution, result tabs), interacting with SQLCompletionContext, SQLQueryJob, ResultSetViewer, and database dialect abstractions ([DeepWiki][5]).
 * *Data Source Management*: manages connections via interfaces like DBPDataSourceContainer, DBPDataSourceRegistry, and platform workspace services (DBPPlatform) ([DeepWiki][1]).
 
+Step 1: Install Required Plugins
 
+
+Install Maven Integration for Eclipse (m2e):
+
+Open Eclipse and go to Help > Eclipse Marketplace....
+Search for "Maven Integration for Eclipse" and install it.
+
+
+
+Install Tycho Plugins:
+
+Tycho plugins are typically used via the command line, but you can ensure Maven integration is properly set up in Eclipse to handle Tycho builds.
+
+
+
+Step 2: Create a New Maven Project
+
+Create a Parent Project:
+
+Go to File > New > Project....
+Select Maven > Maven Project and click Next.
+Check Create a simple project and click Next.
+Enter Group ID (e.g., com.example), Artifact ID (e.g., my-rcp-application), and Version (e.g., 1.0.0-SNAPSHOT).
+Set Packaging to pom.
+Click Finish.
+
+
+
+Step 3: Configure the Parent POM
+
+Open the pom.xml file of the parent project.
+Edit the POM to include the modules and Tycho configuration as described in the previous response.
+
+Step 4: Create Modules
+
+
+Create Plugin Module:
+
+Right-click on the parent project and select New > Project....
+Select Maven > Maven Module and click Next.
+Enter myplugin as the module name and click Finish.
+Open the pom.xml of the plugin module and set the packaging to eclipse-plugin.
+
+
+
+Create Feature Module:
+
+Repeat the process to create a new Maven module named myfeature.
+Set the packaging to eclipse-feature in its pom.xml.
+
+
+
+Create Product Module:
+
+Repeat the process to create a new Maven module named myproduct.
+Set the packaging to eclipse-repository in its pom.xml.
+
+
+
+Step 5: Create Additional Files
+
+
+Create feature.xml for the Feature Module:
+
+Right-click on the myfeature module and select New > File.
+Name the file feature.xml and create it with the content as described earlier.
+
+
+
+Create .product File for the Product Module:
+
+Right-click on the myproduct module and select New > File.
+Name the file myproduct.product and create it with the content as described earlier.
+
+
+
+Step 6: Build the Project
+
+Run Maven Build:
+
+Right-click on the parent project and select Run As > Maven build....
+In the Goals field, enter clean install and click Run.
+
+
+
+Step 7: Verify the Build
+
+Check the target directory of each module to ensure the build artifacts are generated correctly.
+
+Additional Tips
+
+Eclipse PDE (Plugin Development Environment): If you plan to develop Eclipse plugins extensively, consider using Eclipse PDE tools, which provide specialized support for developing Eclipse plugins and RCP applications.
+Target Platform: Ensure your target platform is correctly set up in Eclipse to match the dependencies specified in your POM files.
+
+By following these steps, you can set up and build an Eclipse RCP application using Maven and Tycho within the Eclipse IDE's graphical interface.
 
 # Explain the code snippet
 _Exported on 7/20/2025 at 19:16:29 GMT+1 from Cursor (1.2.4)_
